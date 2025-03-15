@@ -1,0 +1,154 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ebf5e8;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    
+    
+  }
+  
+  /* Container for the whole page */
+  .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:start;
+    height: 100vh;
+    
+    
+    background: linear-gradient(135deg, #ebf5e8, #d8ffbc);
+  }
+  
+  /* Header */
+  .welcome-text {
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    margin-bottom: 80px;
+    margin-top: 40px;
+    justify-content: center;
+  }
+  
+  /* Button styles */
+  button {
+    padding: 10px 20px;
+    background-color: #1e6606;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px;
+    
+  }
+  .controls{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 40vW;
+    
+  }
+  .data-preview{
+    
+    width: 40vW;
+    
+    
+    
+  }
+
+  .container{
+    display:flex;
+    flex-direction:row;
+    align-items: start;
+    justify-content: space-between;
+    gap: 10em;
+  }
+  @media (max-width:720px){
+    body{
+      overflow-y:auto;
+    }
+    .welcome-text{
+      font-size: 1.5rem;
+    }
+    .home{
+      height: auto;
+    }
+    .container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+    }
+    .controls{
+      width:100vw;
+      margin-bottom: 100px;
+    }
+    .data-preview{
+      width: 100vw;
+    }
+    .data-preview h1{
+      font-size: 1em;
+    }
+
+  }
+  
+  .data-preview h1{
+    color: black;
+    text-align: center;
+    font-size: 1.5em;
+    width:40%;
+  }
+ 
+
+  /* Button hover effect */
+  button:hover {
+    background-color: #000000;
+  }
+  
+  /* List of data */
+  .data-preview-container{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    
+    align-items: center;
+    
+  }
+ 
+  /* Individual list item */
+  .data-preview li {
+    background-color: #fff;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    font-size: 1rem;
+    width: 50px;
+    text-align: center;
+    
+  }
+  
+  /* Input field for new sensor data */
+  .data-preview input[type="text"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 400px;
+  }
+  
+  /* Style for the update message */
+  .data-preview p {
+    font-size: 1rem;
+    color: green;
+    margin-top: 10px;
+  }
+  
