@@ -5,7 +5,7 @@ import './App.css';
 import Login from './pages/login';
 import Home from './pages/Home';
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   const [user,setUser] = useState({username:""})

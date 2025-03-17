@@ -5,7 +5,10 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #a2c2e5, #ffccbc);
+    
+    
+    
+    background: linear-gradient(135deg, #ebf5e8, #d8ffbc);
     
   }
   
@@ -13,7 +16,7 @@
   .login-box {
     
     align-items: center;
-    background-color: #e0dcdc;
+    background-color: hsl(105, 96%, 90%);
     padding: 80px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;

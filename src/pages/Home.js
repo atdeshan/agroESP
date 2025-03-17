@@ -4,15 +4,21 @@ import { ref, get, set } from "firebase/database";
 import "./Home.css";
 
 import NavBar from "./Navbar";
+
 const Home = ({ user }) => {
   const [data, setData] = useState([]);
   const [newSensorData, setNewSensorData] = useState(""); // state for new data
+  const [lightStatus, setLightStatus] = useState(false); // state for light status
   const images = [
-    ["./svg/fan.svg","Fan 1"],
-    ["./svg/fan.svg","Fan 2"],
-    ["./svg/temperature.svg","Temp"],
-    ["./svg/humidity.svg","Humidity"],
+    ["./svg/humidity.svg", "Humidity"],
+    ["./svg/fan.svg", "Light"],
+    ["./svg/fan.svg", "Fan 1"],
+    ["./svg/fan.svg", "Fan 2"],
+    ["./svg/temperature.svg", "Temperature"],
+    ["./svg/humidity.svg", "Water Line"],
+    ["./svg/humidity.svg", "Water Line 2"],
   ];
+
   useEffect(() => {
     const dataRef = ref(db, "Sensor/Sensor/"); // Reference to the sensor data in the database
 
@@ -36,7 +42,8 @@ const Home = ({ user }) => {
     const lightStatusRef = ref(db, "Sensor/lightStatus"); // Reference to the lightStatus in the database
 
     // Toggle the lightStatus between true and false
-    const newLightStatus = true; // Toggle lightStatus value based on the existing one
+    const newLightStatus = !lightStatus; // Toggle lightStatus value based on the current state
+    setLightStatus(newLightStatus); // Update the lightStatus state
 
     // Update the lightStatus in Firebase
     set(lightStatusRef, newLightStatus)
@@ -55,26 +62,36 @@ const Home = ({ user }) => {
       <div className="home">
         <h1 className="welcome-text">Welcome Back {user.username}</h1>
         <div className="container">
-          
-
           <div className="data-preview">
-          <ul>
-            {data.map((item, index) => (
-              <div key={index} className="data-preview-container">
-                <img src={images[index][0]} width={"70px"} height={"70px"}></img>
-                <h1 >
-                {images[index][1]}
-                </h1>
-                <li>{JSON.stringify(item[1])}</li>{" "}
-                {/* Accessing the value part of the key-value pair */}
-              </div>
-            ))}
-          </ul>
+            <h1>Sensor Data</h1>
+            <ul>
+              {data.map((item, index) => (
+                <div key={index} className="data-preview-container">
+                  <img
+                    src={images[index][0]}
+                    width={"70px"}
+                    height={"70px"}
+                    alt={images[index][1]}
+                  />
+                  <h1>{images[index][1]}</h1>
+                  <li>{JSON.stringify(item[1])}</li>{" "}
+                  {/* Accessing the value part of the key-value pair */}
+                </div>
+              ))}
+            </ul>
           </div>
 
           <div className="controls">
-            <img src="./svg/light.svg" width={"120px"} height={"120px"}></img>
-            <button onClick={handleAddData}>Turn ON</button>
+            <h1>Controls</h1>
+            <img
+              src="./svg/light.svg"
+              width={"120px"}
+              height={"120px"}
+              alt="Light"
+            />
+            <button onClick={handleAddData}>
+              {lightStatus ? "Turn Off" : "Turn On"}
+            </button>
           </div>
         </div>
       </div>

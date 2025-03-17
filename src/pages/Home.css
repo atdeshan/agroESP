@@ -1,10 +1,17 @@
 /* General styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #ebf5e8;
+    
     margin: 0;
+    
     padding: 0;
-    overflow-y: hidden;
+    background-color: hsl(105, 89%, 21%);
+    
+    
+    background: linear-gradient(135deg, #ebf5e8, #d8ffbc);
+    overflow:auto;
+    overflow-y: auto; /* Allow vertical scrolling */
+    height: 100vh;
     
     
   }
@@ -14,11 +21,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:start;
-    height: 100vh;
+    justify-content:center;
     
+   
     
-    background: linear-gradient(135deg, #ebf5e8, #d8ffbc);
   }
   
   /* Header */
@@ -44,17 +50,31 @@ body {
     
   }
   .controls{
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+    width: 50vW;
+    
+  }
+  .controls h1{
+    color: black;
+    text-align: center;
+    font-size: 1.5em;
+    
+  }
+  .data-preview{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     
-    width: 40vW;
     
-  }
-  .data-preview{
     
-    width: 40vW;
+    width: 50vW;
     
     
     
@@ -65,7 +85,7 @@ body {
     flex-direction:row;
     align-items: start;
     justify-content: space-between;
-    gap: 10em;
+    
   }
   @media (max-width:720px){
     body{
@@ -88,20 +108,26 @@ body {
       width:100vw;
       margin-bottom: 100px;
     }
-    .data-preview{
+    .data-preview-container{
+
       width: 100vw;
     }
+    
     .data-preview h1{
+      
       font-size: 1em;
+      
     }
+    
 
   }
   
   .data-preview h1{
     color: black;
     text-align: center;
-    font-size: 1.5em;
-    width:40%;
+    font-size: 2em;
+    width:250px;
+    
   }
  
 
