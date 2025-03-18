@@ -10,13 +10,13 @@ const Home = ({ user }) => {
   const [newSensorData, setNewSensorData] = useState(""); // state for new data
   const [lightStatus, setLightStatus] = useState(false); // state for light status
   const images = [
+    ["./svg/temperature.svg", "Temperature"],
     ["./svg/humidity.svg", "Humidity"],
-    ["./svg/fan.svg", "Light"],
     ["./svg/fan.svg", "Fan 1"],
     ["./svg/fan.svg", "Fan 2"],
-    ["./svg/temperature.svg", "Temperature"],
-    ["./svg/humidity.svg", "Water Line"],
-    ["./svg/humidity.svg", "Water Line 2"],
+    ["./svg/water.svg", "Water Line"],
+    ["./svg/water.svg", "Water Line 2"],
+    ["./svg/light.svg", "Light"],
   ];
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const Home = ({ user }) => {
                     height={"70px"}
                     alt={images[index][1]}
                   />
-                  <h1>{images[index][1]}</h1>
+                  <h2>{images[index][1]}</h2>
                   <li>{JSON.stringify(item[1])}</li>{" "}
                   {/* Accessing the value part of the key-value pair */}
                 </div>

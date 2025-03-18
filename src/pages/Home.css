@@ -118,6 +118,12 @@ body {
       font-size: 1em;
       
     }
+    .data-preview h2{
+      color: black;
+      text-align: center;
+      font-size: 0.5em;
+      width:250px;
+    }
     
 
   }
@@ -128,6 +134,12 @@ body {
     font-size: 2em;
     width:250px;
     
+  }
+  .data-preview h2{
+    color: black;
+    text-align: center;
+    font-size: 1.5em;
+    width:250px;
   }
  
 
