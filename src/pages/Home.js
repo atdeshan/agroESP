@@ -14,9 +14,10 @@ const Home = ({ user }) => {
     ["./svg/humidity.svg", "Humidity"],
     ["./svg/fan.svg", "Fan 1"],
     ["./svg/fan.svg", "Fan 2"],
+    
     ["./svg/water.svg", "Water Line"],
     ["./svg/water.svg", "Water Line 2"],
-    ["./svg/light.svg", "Light"],
+
   ];
 
   useEffect(() => {
@@ -27,7 +28,10 @@ const Home = ({ user }) => {
       .then((snapshot) => {
         if (snapshot.exists()) {
           const data = snapshot.val();
-          setData(Object.entries(data)); // Store entries as an array of key-value pairs
+          const filteredData = Object.entries(data).filter(
+            ([key]) => key !== "07_lightStatus"
+          );
+          setData(filteredData);
         } else {
           console.log("No data available");
         }
@@ -39,10 +43,10 @@ const Home = ({ user }) => {
 
   // Function to handle adding new data to the database
   const handleAddData = () => {
-    const lightStatusRef = ref(db, "Sensor/lightStatus"); // Reference to the lightStatus in the database
+    const lightStatusRef = ref(db, "Sensor/07_lightStatus"); // Reference to the lightStatus in the database
 
     // Toggle the lightStatus between true and false
-    const newLightStatus = !lightStatus; // Toggle lightStatus value based on the current state
+    const newLightStatus =  lightStatus ? false : true;
     setLightStatus(newLightStatus); // Update the lightStatus state
 
     // Update the lightStatus in Firebase
